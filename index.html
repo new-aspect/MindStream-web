@@ -20,7 +20,7 @@
                 },
                 async checkAuth() {
                     try {
-                        const response = await fetch('http://localhost:8080/api/user/me')
+                        const response = await fetch('/api/user/me')
                         if (response.status === 401) {
                             // 如果返回401，跳转到sigin.html
                             window.location.href = 'sigin.html';

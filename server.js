@@ -8,8 +8,11 @@ app.use(express.static('./'));
 
 // 配置代理
 app.use('/api',createProxyMiddleware({
-    target: 'http://localhost:8080', // 后端服务启动地址
-    changeOrigin: true
+    target: 'http://localhost:8080/api', // 后端服务启动地址
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api': '' // 如果需要调整路径
+      }
 }))
 
 // 设置端口
